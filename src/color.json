@@ -1,0 +1,99 @@
+{
+  "background_colors": [
+    {
+      "b": 146,
+      "closest_palette_color": "cerulean",
+      "closest_palette_color_html_code": "#0074a8",
+      "closest_palette_color_parent": "blue",
+      "closest_palette_distance": 7.6390495300293,
+      "g": 121,
+      "html_code": "#527992",
+      "percent": 48.452278137207,
+      "r": 82
+    },
+    {
+      "b": 47,
+      "closest_palette_color": "light bronze",
+      "closest_palette_color_html_code": "#8c5e37",
+      "closest_palette_color_parent": "skin",
+      "closest_palette_distance": 1.77959251403809,
+      "g": 92,
+      "html_code": "#8b5c2f",
+      "percent": 38.789134979248,
+      "r": 139
+    },
+    {
+      "b": 36,
+      "closest_palette_color": "dark bronze",
+      "closest_palette_color_html_code": "#542e0c",
+      "closest_palette_color_parent": "skin",
+      "closest_palette_distance": 5.81745147705078,
+      "g": 56,
+      "html_code": "#543824",
+      "percent": 12.7585859298706,
+      "r": 84
+    }
+  ],
+  "color_percent_threshold": 1.75,
+  "color_variance": 36,
+  "foreground_colors": [
+    {
+      "b": 47,
+      "closest_palette_color": "latte",
+      "closest_palette_color_html_code": "#5d473a",
+      "closest_palette_color_parent": "brown",
+      "closest_palette_distance": 3.39165639877319,
+      "g": 64,
+      "html_code": "#5c402f",
+      "percent": 44.6589431762695,
+      "r": 92
+    },
+    {
+      "b": 167,
+      "closest_palette_color": "sand",
+      "closest_palette_color_html_code": "#c1b7b0",
+      "closest_palette_color_parent": "light grey",
+      "closest_palette_distance": 4.80042266845703,
+      "g": 183,
+      "html_code": "#cbb7a7",
+      "percent": 33.8481330871582,
+      "r": 203
+    },
+    {
+      "b": 39,
+      "closest_palette_color": "moss",
+      "closest_palette_color_html_code": "#525f48",
+      "closest_palette_color_parent": "olive green",
+      "closest_palette_distance": 10.563985824585,
+      "g": 64,
+      "html_code": "#394027",
+      "percent": 21.492919921875,
+      "r": 57
+    }
+  ],
+  "image_colors": [
+    {
+      "b": 45,
+      "closest_palette_color": "light bronze",
+      "closest_palette_color_html_code": "#8c5e37",
+      "closest_palette_color_parent": "skin",
+      "closest_palette_distance": 4.31199312210083,
+      "g": 83,
+      "html_code": "#7e532d",
+      "percent": 51.1182479858398,
+      "r": 126
+    },
+    {
+      "b": 145,
+      "closest_palette_color": "cerulean",
+      "closest_palette_color_html_code": "#0074a8",
+      "closest_palette_color_parent": "blue",
+      "closest_palette_distance": 7.94029760360718,
+      "g": 121,
+      "html_code": "#537991",
+      "percent": 48.3985824584961,
+      "r": 83
+    }
+  ],
+  "object_percentage": 1.51922690868378
+}
