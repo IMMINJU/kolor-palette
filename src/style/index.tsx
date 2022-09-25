@@ -7,7 +7,6 @@ const style = css`
     padding: 0;
     border: 0;
     line-height: 1;
-    font-family: "Public Sans", sans-serif;
     box-sizing: border-box;
   }
   body {

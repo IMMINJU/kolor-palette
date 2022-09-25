@@ -1,9 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import React, { useEffect, useState } from "react";
-import { Random } from "unsplash-js/dist/methods/photos/types";
 import Item from "./Item";
-import getImages from "./utils/getImages";
+import assets from "./assets.json";
 
 const container = css`
   display: flex;
@@ -22,6 +20,7 @@ const headerContainer = css`
 const title = css`
   font-size: 32px;
   margin-bottom: 36px;
+  font-family: "Public Sans", sans-serif;
 `;
 const main = css`
   padding: 24px;
@@ -32,41 +31,33 @@ const itemWrapper = css`
   justify-content: center;
   gap: 12px;
   margin-bottom: 12px;
+  @media screen and (max-width: 768px) {
+    align-items: normal;
+    flex-direction: column;
+  }
 `;
 
-const App = () => {
-  const [data, setData] = useState<Random[]>([]);
-  const init = async () => {
-    const images = (await getImages()) as Random[];
-    setData(images);
-  };
-
-  useEffect(() => {
-    init();
-  }, []);
-
-  return (
-    <div css={container}>
-      <div css={wrapper}>
-        <header css={headerContainer}>
-          <h2 css={title}>Kolor Palette</h2>
-        </header>
-        <main css={main}>
-          {data.map((_, idx, arr) =>
-            idx % 2 === 0 ? (
-              <section css={itemWrapper}>
-                {arr.slice(idx, idx + 2).map((item, _idx) => (
-                  <Item key={item.id} data={item} idx={idx} />
-                ))}
-              </section>
-            ) : (
-              <></>
-            )
-          )}
-        </main>
-      </div>
+const App = () => (
+  <div css={container}>
+    <div css={wrapper}>
+      <header css={headerContainer}>
+        <h2 css={title}>Kolor Palette</h2>
+      </header>
+      <main css={main}>
+        {assets.map((_, idx, arr) =>
+          idx % 2 === 0 ? (
+            <section css={itemWrapper}>
+              {arr.slice(idx, idx + 2).map((item) => (
+                <Item key={item.id} data={item} />
+              ))}
+            </section>
+          ) : (
+            <></>
+          )
+        )}
+      </main>
     </div>
-  );
-};
+  </div>
+);
 
 export default App;

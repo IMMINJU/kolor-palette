@@ -1,9 +1,5 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { useEffect, useState } from "react";
-import getColors from "../utils/getColors";
-
-const CC = Array(3).fill("color");
 
 const container = css`
   flex: 1;
@@ -21,45 +17,97 @@ const colorWrapper = css`
   flex: 1;
   display: flex;
 `;
-const primaryColor = css`
+const fontStyle = css`
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: min(16px, 1vw);
+  font-family: "Roboto", sans-serif;
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
-const Item = ({ data, idx }: any) => {
-  const [_data, setData] = useState<any>();
 
-  const init = () => {
-    new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(getColors(data));
-      }, idx * 600);
-    }).then((result) => setData(result));
+type ColorItem = {
+  percent: number | null;
+  closest_palette_color: string;
+  html_code: string;
+  r: number;
+  g: number;
+  b: number;
+};
+
+type Props = {
+  data: {
+    color: string;
+    urls: {
+      regular: string;
+    };
+    background_colors: ColorItem[];
+    foreground_colors: ColorItem[];
+    image_colors: ColorItem[];
   };
+};
 
-  useEffect(() => {
-    init();
-  }, []);
+const hexToRgb = (hex: string) => {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result
+    ? [
+        parseInt(result[1], 16),
+        parseInt(result[2], 16),
+        parseInt(result[3], 16),
+      ]
+    : [];
+};
+
+const getFontColor = (rgb: number[]) => {
+  const brightness = Math.round(
+    (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000
+  );
+  return brightness > 125 ? "#1414147a" : "#fafafab7";
+};
+
+const Item = ({ data }: Props) => {
+  const colorItems = [
+    ...data.background_colors,
+    ...data.foreground_colors,
+    ...data.image_colors,
+  ].filter(
+    (item, idx, self) =>
+      item.percent &&
+      30 < item.percent &&
+      idx === self.findIndex((t) => t.html_code === item.html_code)
+  );
 
   return (
-    <article css={[container]}>
+    <article css={container}>
       <div
         css={[
-          primaryColor,
+          fontStyle,
           css`
             background-color: ${data.color};
+            color: ${getFontColor(hexToRgb(data.color))};
           `,
         ]}
-      />
+      >
+        {data.color}
+      </div>
       <img css={imgStyle} src={data.urls.regular} alt="img" />
       <div css={colorWrapper}>
-        {CC.map((item: any, idx: any) => (
+        {colorItems.map((item) => (
           <div
-            css={css`
-              flex: 1;
-              background-color: skyblue;
-            `}
-            key={idx}
+            css={[
+              fontStyle,
+              css`
+                background-color: ${item.html_code};
+                color: ${getFontColor([item.r, item.g, item.b])};
+              `,
+            ]}
+            key={`${item.closest_palette_color}_${item.html_code}`}
           >
-            {idx}
+            {item.html_code}
           </div>
         ))}
       </div>
