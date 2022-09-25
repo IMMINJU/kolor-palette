@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/kolor-palette/static/js/main.99ad100a.js",
+    "index.html": "/kolor-palette/index.html",
+    "main.99ad100a.js.map": "/kolor-palette/static/js/main.99ad100a.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.99ad100a.js"
+  ]
+}
