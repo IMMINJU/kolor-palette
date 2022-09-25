@@ -2,7 +2,7 @@
   "name": "kolor-pallete",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://IMMINJU.github.io/kolor-palette",
+  "homepage": "https://imminju.github.io/kolor-palette",
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@types/node": "^16.11.60",
